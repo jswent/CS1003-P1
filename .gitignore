@@ -3,3 +3,6 @@
 
 #.txt files
 *.txt
+
+#OS Specific files
+.DS_STORE
