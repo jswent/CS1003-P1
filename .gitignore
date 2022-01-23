@@ -6,3 +6,6 @@
 
 #OS Specific files
 .DS_STORE
+
+#Compiled files
+*.class
