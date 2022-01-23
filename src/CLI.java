@@ -15,7 +15,7 @@ public class CLI {
     }
 
     //needs additional checks
-    public boolean checkArgs() {
+    public boolean checkArgsValid() {
         if (args.length == 0) 
             return false;
         else
@@ -38,7 +38,7 @@ public class CLI {
     }
 
     public String getText() throws Exception{
-        if (checkArgs() == false) {
+        if (checkArgsValid() == false) {
             throw new Exception("Insufficient arguments provided");
         }
         return args[args.length-1].toLowerCase();

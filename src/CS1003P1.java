@@ -12,7 +12,7 @@ public class CS1003P1 {
         
         CLI cli = new CLI(args);
 
-        if (cli.checkArgs() == false) {
+        if (cli.checkArgsValid() == false) {
             throw new Exception("Insufficient arguments found");
         }
 
