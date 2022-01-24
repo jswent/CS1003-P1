@@ -1,0 +1,8 @@
+Welcome to CS1003 Practical 1 Help
+
+Flags:
+-n [size]   --ngram [size]      use n-grams of size specified
+-f [path]   --file [path]       specify words_alpha.txt file path
+-h          --help              display help page
+-v          --verbose           output verbose logging
+-t          --test              run provided test data
