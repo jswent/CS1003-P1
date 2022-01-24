@@ -7,7 +7,7 @@ public class Bigrams {
 
     public Set<String> createBigrams(String s) {
         s = s.toLowerCase();
-        Set<String> set = new HashSet<>();
+        Set<String> set = new LinkedHashSet<>();
         s = s.replaceAll("", " ");
         StringTokenizer st = new StringTokenizer(s, " ");
 

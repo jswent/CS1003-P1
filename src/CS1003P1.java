@@ -9,27 +9,40 @@ import java.util.StringTokenizer;
 public class CS1003P1 {
 
     public static void main(String[] args) throws Exception {
-        
+        String out = "";
         CLI cli = new CLI(args);
 
         if (cli.checkArgsValid() == false) {
+            cli.verboseLog("Checking validity of provided arguments");
             throw new Exception("Insufficient arguments found");
         }
 
-        Bigrams bigrams = new Bigrams();
-        // System.out.println(bigrams.diceCoefficient(bigrams.createBigrams("Chips"), bigrams.createBigrams("Crips")));
-
-        StringTokenizer st = new StringTokenizer(cli.getText(), " ");
-        while (st.hasMoreTokens()) {
-            String currToken = st.nextToken();
-            if(isValidWord(cli.getAlphaPath(), currToken)) {
-                System.out.print(currToken + " ");
-            }
-            else {
-                System.out.print(findClosestMatch(cli.getAlphaPath(), currToken) + " ");
-            }
+        if (cli.getHelp()) {
+            cli.verboseLog("Checking if help menu should be output");
+            cli.printHelp();
         }
-        System.out.println();
+        else {
+            Bigrams bigrams = new Bigrams();
+            // System.out.println(bigrams.diceCoefficient(bigrams.createBigrams("Chips"), bigrams.createBigrams("Crips")));
+
+            StringTokenizer st = new StringTokenizer(cli.getText(), " ");
+            cli.verboseLog("Entering tokens loop of provided string");
+            while (st.hasMoreTokens()) {
+                String currToken = st.nextToken();
+                if(isValidWord(cli.getAlphaPath(), currToken)) {
+                    cli.verboseLog(currToken + " is valid word, adding to output");
+                    out += currToken + " ";
+                }
+                else {
+                    cli.verboseLog(currToken + " is invalid word, finding closest match in file");
+                    out += findClosestMatch(cli.getAlphaPath(), currToken) + " ";
+                }
+            }
+
+            cli.verboseLog("printing final output to sdout");
+            System.out.println(out);
+
+        }
         
     }
 

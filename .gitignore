@@ -9,3 +9,6 @@
 
 #Compiled files
 *.class
+
+#IntelliJ IDEA files
+/.idea
