@@ -8,9 +8,12 @@ import java.util.StringTokenizer;
 
 public class CS1003P1 {
 
+    private static int n;
+
     public static void main(String[] args) throws Exception {
         String out = "";
         CLI cli = new CLI(args);
+        n = cli.getN();
 
         if (cli.checkArgsValid() == false) {
             cli.verboseLog("Checking validity of provided arguments");
@@ -22,9 +25,6 @@ public class CS1003P1 {
             cli.printHelp();
         }
         else {
-            Bigrams bigrams = new Bigrams();
-            // System.out.println(bigrams.diceCoefficient(bigrams.createBigrams("Chips"), bigrams.createBigrams("Crips")));
-
             StringTokenizer st = new StringTokenizer(cli.getText(), " ");
             cli.verboseLog("Entering tokens loop of provided string");
             while (st.hasMoreTokens()) {
@@ -64,7 +64,7 @@ public class CS1003P1 {
 
     public static String findClosestMatch(String alphaPath, String word) throws IOException{
         Path path = Paths.get(alphaPath);
-        Bigrams bigrams = new Bigrams();
+        NgramGenerator ngram = new NgramGenerator(n);
         
         List<String> lines = Files.readAllLines(path);
         lines.stream().map(String::toLowerCase);
@@ -73,10 +73,10 @@ public class CS1003P1 {
         String corrWord = "";   //corresponding word to highest Sorenson Dice Coefficient
 
         for (String s : lines) {
-            Set<String> set1 = bigrams.createBigrams(word);
-            Set<String> set2 = bigrams.createBigrams(s);
+            Set<String> set1 = ngram.createNgrams(word);
+            Set<String> set2 = ngram.createNgrams(s);
 
-            double currDice = bigrams.diceCoefficient(set1, set2);
+            double currDice = ngram.diceCoefficient(set1, set2);
             if (currDice > highestCoefficient) {
                 highestCoefficient = currDice;
                 corrWord = s;
