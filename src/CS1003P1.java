@@ -22,9 +22,6 @@ public class CS1003P1 {
             cli.printHelp();
         }
         else {
-            Bigrams bigrams = new Bigrams();
-            // System.out.println(bigrams.diceCoefficient(bigrams.createBigrams("Chips"), bigrams.createBigrams("Crips")));
-
             StringTokenizer st = new StringTokenizer(cli.getText(), " ");
             cli.verboseLog("Entering tokens loop of provided string");
             while (st.hasMoreTokens()) {
