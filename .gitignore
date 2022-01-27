@@ -12,4 +12,4 @@
 
 #IntelliJ IDEA files
 /.idea
-P1.iml
+*.iml
