@@ -134,6 +134,13 @@ public class Scenarios {
         System.out.println();
     }
 
+    public void scenario6() throws Exception {
+        System.out.println("i love computr scence: " + testSentence("i love computr scence"));
+        System.out.println("sint andrews: " + testSentence("sint andrews"));
+        System.out.println("prctcal oen: " + testSentence("prctcal oen"));
+        System.out.println("sme of thse dnt wrk: " + testSentence("sme of thse dnt wrk"));
+    }
+
     private String testSentence(String s) throws Exception {
         String[] args = {s};
         cli = new CLI(args);
