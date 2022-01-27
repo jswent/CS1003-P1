@@ -11,8 +11,16 @@ public class Scenarios {
     private CLI cli;
     private int n;
 
-    public void runTest() {
-
+    public void runTest() throws Exception {
+        testDice();
+        testCorrections();
+        scenario1();
+        scenario2();
+        scenario3();
+        scenario4();
+        scenario5();
+        scenario6();
+        
     }
 
     public void testDice() {

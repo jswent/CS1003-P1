@@ -14,7 +14,7 @@ public class CS1003P1 {
 
         if (cli.checkArgsValid() == false) {
             cli.verboseLog("Checking validity of provided arguments");
-            throw new Exception("Insufficient arguments found");
+            throw new Exception("Insufficient or invalid arguments found");
         }
 
         if (cli.getHelp()) {

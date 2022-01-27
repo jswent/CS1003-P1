@@ -26,6 +26,14 @@ public class CLI {
 
     //needs additional checks
     public boolean checkArgsValid() {
+        for (int i = 0; i < args.length - 1; i++) {
+            if (!(args[i].equals("-f") || args[i].equals("--file") || args[i].equals("-n") 
+                || args[i].equals("-t") || args[i].equals("--test") || args[i].equals("-h") 
+                || args[i].equals("--help") || args[i].equals("-v") || args[i].equals("--verbose"))) {
+                    return false;
+                }
+        }
+
         if (args.length == 0) 
             return false;
         else
@@ -46,7 +54,7 @@ public class CLI {
 
     public void checkFlags() throws Exception {
         for(int i = 0; i < args.length; i++) {
-            if (args[i].equals("-f") || args[i].equals("--help")) {
+            if (args[i].equals("-f") || args[i].equals("--file")) {
                 if (isValidPath(args[i+1])) 
                     setAlternatePath(args[i+1]);
                 else 
@@ -55,13 +63,12 @@ public class CLI {
             }
 
             if (args[i].equals("-n")) {
-                if (isValidN(args[i+1])) {
-                    n = Integer.parseInt(args[i+1]);
-                }
-                else {
-                    throw new Exception("Invalid n-gram length specified");
-                }
-                i++;
+                throw new Exception("Invalid command in version main, please try in P1Ex");
+            }
+
+            if (args[i].equals("-t") || args[i].equals("--test")) {
+                Scenarios scenarios = new Scenarios();
+                scenarios.runTest();
             }
 
             if (args[i].equals("-h") || args[i].equals("--help")) {
