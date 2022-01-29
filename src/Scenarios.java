@@ -23,6 +23,7 @@ public class Scenarios {
         
     }
 
+    //tests dice coefficient using provided test data
     public void testDice() {
         Bigrams bigrams = new Bigrams();
 
@@ -48,6 +49,7 @@ public class Scenarios {
         System.out.println(bigrams.diceCoefficient(bigrams.createBigrams("speled"), bigrams.createBigrams("spelled")));
     }
 
+    //tests sentence correction using provided test data
     public void testCorrections() throws Exception {
         System.out.print("one word that is not stravberry: ");
         System.out.println(testSentence("one word that is not stravberry"));
@@ -62,6 +64,7 @@ public class Scenarios {
         System.out.println(testSentence("a seng of soilence"));
     }
 
+    //scenario 1 tests bigram creation of two strings and the corresponding dice coefficient
     public void scenario1() {
         Bigrams bigrams = new Bigrams();
 
@@ -78,6 +81,7 @@ public class Scenarios {
         System.out.println();
     }
 
+    //scenario 2 tests bigram creation of two strings and the corresponding dice coefficient
     public void scenario2() {
         Bigrams bigrams = new Bigrams();
 
@@ -94,6 +98,7 @@ public class Scenarios {
         System.out.println();
     }
 
+    //scenario 3 tests bigram creation of two strings and the corresponding dice coefficient
     public void scenario3() {
         Bigrams bigrams = new Bigrams();
 
@@ -110,6 +115,7 @@ public class Scenarios {
         System.out.println();
     }
 
+    //scenario 4 tests bigram creation of two completely different strings and the corresponding dice coefficient
     public void scenario4() {
         Bigrams bigrams = new Bigrams();
 
@@ -126,6 +132,7 @@ public class Scenarios {
         System.out.println();
     }
 
+    //scenario 5 tests bigram creation of two completely similar strings and the corresponding dice coefficient
     public void scenario5() {
         Bigrams bigrams = new Bigrams();
 
@@ -142,6 +149,7 @@ public class Scenarios {
         System.out.println();
     }
 
+    //scenario 6 tests sentence correction of various sentences
     public void scenario6() throws Exception {
         System.out.println("i love computr scence: " + testSentence("i love computr scence"));
         System.out.println("sint andrews: " + testSentence("sint andrews"));
@@ -149,6 +157,7 @@ public class Scenarios {
         System.out.println("sme of thse dnt wrk: " + testSentence("sme of thse dnt wrk"));
     }
 
+    //method to emulate function of CS1003P1 CLI application
     private String testSentence(String s) throws Exception {
         String[] args = {s};
         cli = new CLI(args);
@@ -168,6 +177,7 @@ public class Scenarios {
         return out;
     }
 
+    //checks if provided word is found in specified file
     private static boolean isValidWord(String alphaPath, String word) throws IOException {
         Path path = Paths.get(alphaPath);
         boolean isValid = false;
@@ -184,6 +194,7 @@ public class Scenarios {
         return isValid;
     }
 
+    //finds closest word match of provided string in specified file
     private static String findClosestMatch(String alphaPath, String word) throws IOException{
         Path path = Paths.get(alphaPath);
         Bigrams bigrams = new Bigrams();
